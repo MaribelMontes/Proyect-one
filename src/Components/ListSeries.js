@@ -1,14 +1,12 @@
-import dataSerie from "../data/Serie";
+
 import Serie from "./Serie";
 
-function ListSerie(){
-    let lstSeries = dataSerie.map( element =>{
+function ListSerie(props){
+    let listSeriesRendered = props.elements.map( element =>{
         return <Serie 
-        title={element.Title}
-        descripcion={element.Description}
-        released={element.Released}
-        poster={element.Poster}
-        
+                key = {element.Id}
+                value = {element}
+                fnAddFavorites = {props.fnAddFavorites}
         />
     });
 
@@ -18,7 +16,7 @@ function ListSerie(){
     
     return(
         <div className="container" style={containerStyle}>
-        <div className='row'>{lstSeries}
+        <div className='row'>{listSeriesRendered}
         </div>
         </div>
     );
