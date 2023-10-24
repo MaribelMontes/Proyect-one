@@ -4,6 +4,7 @@ import ListSeries from './Components/ListSeries';
 import dataSerie from './data/Serie';
 import { useState } from 'react';
 import ListFavoritos from './Components/ListFavoritos';
+import CreateSerie from './Components/CreateSerie';
 
 function App() {
   const [listSeries, setListSeries] = useState(dataSerie);
@@ -18,6 +19,11 @@ function App() {
       tempListSeries.push(element);
       setListSeriesFavoritas(tempListSeries);
     }
+  }
+
+  function newSerie (element){
+    setListSeries([...listSeries, element]);
+
   }
 
   function handleRemoveFavorite(updatedFavorites) {
@@ -36,6 +42,7 @@ function App() {
                 fnAddFavorites = {addSerieFavorites}/>
         </div>
         <div className='col-md-3'>
+          <CreateSerie fnNewSerie = {newSerie}/>
         <ListFavoritos elements={listSeriesFavoritas} onRemoveFavorite={handleRemoveFavorite} />
         </div>
   
