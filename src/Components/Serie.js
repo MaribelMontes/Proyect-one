@@ -34,7 +34,6 @@ function Serie (props){
                 <img src={props.value.Poster} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-titulo">{props.value.Title}</h5>
-                    <p className="card-text"><small className="text-muted">{props.value.Genre}</small></p>
                     <p className="card-text">{props.value.Description.substring(0, 30)}</p>
                     <p className="card-text"><small className="text-muted">{props.value.Released}</small></p>
                    {sectionverMas}
